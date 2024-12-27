@@ -22,9 +22,9 @@ sudo systemctl enable bind9
 
 ### Example of basic configuration in /etc/bind/named.conf.local:
 
-//
-// Do any local configuration here
-//
+
+Do any local configuration here
+
 
 ```bash
 zone "flaskfarnodes.in" IN {
@@ -34,9 +34,9 @@ zone "flaskfarnodes.in" IN {
 };
 ```
 
-// Consider adding the 1918 zones here, if they are not used in your
-// organization
-//include "/etc/bind/zones.rfc1918";
+Consider adding the 1918 zones here, if they are not used in your
+organization
+include "/etc/bind/zones.rfc1918";
 
 ### Example of basic configuration in /etc/bind/named.conf.options
 
@@ -48,6 +48,7 @@ options {
         listen-on port 53 {any;};
         allow-query {any;};
 ```
+```bash
 	// If there is a firewall between you and nameservers you want
 	// to talk to, you may need to fix the firewall to allow multiple
 	// ports to talk.  See http://www.kb.cert.org/vuls/id/800113
@@ -69,10 +70,10 @@ options {
 
 	listen-on-v6 { any; };
 };
-
-
+```
 ### Example of basic configuration in /etc/bind/etc/bind/zones$ 
 
+```bash
 forward.zone.flaskfarnodes.in 
 $TTL 2d
 @   IN  SOA dns.flaskfarnodes.in. admin.flaskfarnodes.in. (
@@ -89,7 +90,7 @@ $TTL 2d
 ;; A records
 @       IN  A   192.168.29.194   ; flaskfarnodes.in points to the BIND server (ip server)
 dns     IN  A   192.168.29.124   ; dns.flaskfarnodes.in points to the BIND server (ip DNS)
-
+```
 
 5. After editing your configuration files, check for syntax errors:
 
@@ -113,12 +114,13 @@ dig @localhost example.com
 
 8. rahul@bind:/etc/default$ cat named 
 
+```bash
 # run resolvconf?
 RESOLVCONF=no
 
 # startup options for the server (Bind Server)
 OPTIONS="-4 -u bind"
-
+```
 
 ###  After Bind create entry HOST Localhost
 
