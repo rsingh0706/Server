@@ -56,4 +56,4 @@ lftp user@ip
 
 
 
-
+advance Commands pending (ftp folder & user ) see more...
