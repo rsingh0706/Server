@@ -77,6 +77,7 @@ sudo rm -rf /etc/nginx
 ```bash
 sudo rm -rf /var/log/nginx
 sudo rm -rf /var/cache/nginx
+sudo rm -rf /var/www/html
 ```
 
 7. Verify Removal
