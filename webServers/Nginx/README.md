@@ -58,18 +58,34 @@ sudo apt remove nginx nginx-common
 sudo apt purge nginx nginx-common
 ```
 
-4. Remove any unneeded dependencies left after uninstalling Nginx:
+4. Remove Dependencies
+   Remove any unneeded dependencies left after uninstalling Nginx:
 
 ```bash
 sudo apt autoremove
 ```
 
-5. Delete Nginx Configuration Files\n
+5. Delete Nginx Configuration Files
    If any configuration files were not removed during the purge, delete them manually:
 
 ```bash
 sudo rm -rf /etc/nginx
 ```
+
+6. Remove Logs and Cache Delete Nginx logs and cached files:
+
+```bash
+sudo rm -rf /var/log/nginx
+sudo rm -rf /var/cache/nginx
+```
+
+7. Verify Removal
+
+```bash
+nginx -v
+```
+
+
 
 
 
