@@ -37,4 +37,42 @@ Web Root: /var/www/html/
 wil do advance configuration in nginx...
 
 
+### To completely remove Nginx from an Ubuntu system, you can follow these steps:
+
+1. Stop the Nginx Service
+
+```bash
+sudo systemctl stop nginx
+```
+
+2. Uninstall Nginx
+   To remove Nginx and its associated packages, use:
+
+```bash
+sudo apt remove nginx nginx-common
+```
+
+3. If you want to remove Nginx along with its configuration files:
+
+```bash
+sudo apt purge nginx nginx-common
+```
+
+4. Remove any unneeded dependencies left after uninstalling Nginx:
+
+```bash
+sudo apt autoremove
+```
+
+5. Delete Nginx Configuration Files\n
+   If any configuration files were not removed during the purge, delete them manually:
+
+```bash
+sudo rm -rf /etc/nginx
+```
+
+
+
+
+
 
