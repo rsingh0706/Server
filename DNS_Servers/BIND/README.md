@@ -71,7 +71,7 @@ options {
 	listen-on-v6 { any; };
 };
 ```
-### Example of basic configuration in /etc/bind/etc/bind/zones$ 
+### Example of basic configuration in /etc/bind/zones$ 
 
 ```bash
 forward.zone.flaskfarnodes.in 
