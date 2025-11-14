@@ -1,0 +1,55 @@
+                     ┌──────────────────────────┐
+                     │       CLIENT (User)      │
+                     │   Example: dig www.xyz   │
+                     └──────────────┬───────────┘
+                                    |
+                                    v
+                     ┌──────────────────────────┐
+                     │     BIND DNS SERVER      │
+                     │     Receives Query       │
+                     └──────────────┬───────────┘
+                                    |
+                                    v
+      ┌──────────────────────────────────────────────────────┐
+      │ 1️⃣  named.conf.options (Global DNS Server Settings) │
+      │------------------------------------------------------│
+      │ • Controls recursion (yes/no)                        │
+      │ • Controls allow-query (who can query DNS)           │
+      │ • Forwarders (e.g., 8.8.8.8, 1.1.1.1)                │
+      │ • Basic behavior of the DNS server                   │
+      └──────────────────────────┬────────────────────────────┘
+                                 |
+                                 v
+      ┌──────────────────────────────────────────────────────┐
+      │ 2️⃣  named.conf.local (Zone Declaration Section)     │
+      │------------------------------------------------------│
+      │ • Defines what domains this DNS server hosts         │
+      │ • Points to each zone file                           │
+      │ • Defines forward and reverse zones                  │
+      │                                                      │
+      │ Example:                                             │
+      │ zone "doapp.farnodes" {                              │
+      │   file "/etc/bind/db.doapp.farnodes";                │
+      │ };                                                   │
+      └──────────────────────────┬────────────────────────────┘
+                                 |
+                                 v
+      ┌──────────────────────────────────────────────────────┐
+      │ 3️⃣  Zone File (Actual DNS Records)                  │
+      │------------------------------------------------------│
+      │ • A Record  : Name → IP                              │
+      │ • NS Record : Name Server Information                │
+      │ • PTR Record: Reverse Lookup (IP → Name)             │
+      │ • CNAME     : Alias Records                          │
+      │ • SOA Record: Start of Authority                      │
+      │                                                      │
+      │ Example:                                             │
+      │ www   IN   A   192.168.29.129                        │
+      └──────────────────────────┬────────────────────────────┘
+                                 |
+                                 v
+                     ┌───────────────────────────┐
+                     │   DNS Response to Client   │
+                     │  www → 192.168.29.129      │
+                     └───────────────────────────┘
+
